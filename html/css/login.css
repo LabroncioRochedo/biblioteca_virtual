@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 html {
     height: 100%;
     margin: 0 auto;
@@ -17,28 +20,69 @@ header {
 
 a {
     color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 section {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    margin: 30px auto;
+    padding: 35px 25px 30px 25px;
+    background-color: white;
+    border-radius: 20px;
+    gap: 30px;
 }
 
-section button {
+button {
     width: 100%;
-    height: 30px;
-    background-color: green;
-    border-color: green;
+    height: 35px;
+    background-color: rgb(151, 28, 178);
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-section input {
+button:hover {
+    background-color: rgb(165, 43, 201);
+}
+
+button:active {
+    scale: 0.98;
+}
+
+
+
+input {
     width: 100%;
-    height: 25px;
+    height: 35px;
     border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
 }
 
+input:focus {
+    border: 2px solid #9224b5;
+}
 
+.header_senha {
+    display: flex;
+    justify-content: space-between;
+}
 
+.header_senha a {
+    color: rgb(87, 142, 142);
+}
+
+.botao_e_link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 

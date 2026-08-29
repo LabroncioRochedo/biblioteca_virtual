@@ -14,16 +14,21 @@
         </header>
         <main>
             <section>
-                <h4>Email</h4>
-                <input placeholder="digite seu email">
-                <h4>Senha</h4>
-                <input type="password" placeholder="digite sua senha">
-                <br><br>
-                <button>Confirmar</button>
-                <br><br>
-                <a href="">Esqueceu a senha?</a>
-                <br><br>
-                <a href="cadastro.html">Criar conta</a>
+                <div class="campo_email">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="digite seu email" required>
+                </div>
+                <div class="campo_senha">
+                    <div class="header_senha">
+                        <label>Senha</label>
+                        <a href="">Esqueceu a senha?</a>
+                    </div>
+                    <input type="password" placeholder="digite sua senha" required>
+                </div>
+                <div class="botao_e_link">
+                    <button type="submit">Confirmar</button>
+                    <a href="cadastro.html">Criar conta</a>
+                </div>
             </section>
         </main>
 
