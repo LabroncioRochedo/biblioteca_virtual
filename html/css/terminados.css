@@ -44,34 +44,41 @@ main {
     padding-top: 20px;
 }
 
-ul {
+ol {
     display: flex;
-    overflow-x: auto;
     list-style: none;
-    scrollbar-width: none;
+    flex-wrap: wrap;
     margin: 0px;
     gap: 20px;
 }
 
-ul::-webkit-scrollbar {
-    display: none;
+.capa {
+    position: relative;
+    transition: 0.5s;
 }
 
 li img {
     width: 120px;
     height: 180px;
     cursor: pointer;
-    transition: 0.5s;
     border-radius: 10px;
     padding-top: 5px;
 }
 
-li img:hover {
+.capa:hover {
     transform: scale(1.05);
 }
 
-li img:active {
+.capa:active {
     transform: scale(0.95);
+}
+
+.marcador {
+    position: absolute;
+    width: 25px;
+    height: auto;
+    bottom: 10px;
+    right: 5px;
 }
 
 li h6 {

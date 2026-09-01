@@ -44,17 +44,12 @@ main {
     padding-top: 20px;
 }
 
-ul {
+ol {
     display: flex;
-    overflow-x: auto;
     list-style: none;
-    scrollbar-width: none;
+    flex-wrap: wrap;
     margin: 0px;
     gap: 20px;
-}
-
-ul::-webkit-scrollbar {
-    display: none;
 }
 
 li img {
