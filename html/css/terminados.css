@@ -48,7 +48,7 @@ ol {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
-    margin: 0px;
+    padding-left: 20px;
     gap: 20px;
 }
 

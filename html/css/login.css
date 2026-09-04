@@ -38,6 +38,10 @@ section {
     gap: 30px;
 }
 
+label {
+    font-size: 15px;
+}
+
 button {
     width: 100%;
     height: 35px;
@@ -70,13 +74,13 @@ input:focus {
     border: 2px solid #9224b5;
 }
 
-.header_senha {
-    display: flex;
-    justify-content: space-between;
+.esqueceu_senha {
+    text-align: right;
 }
 
-.header_senha a {
+.esqueceu_senha a {
     color: rgb(87, 142, 142);
+    font-size: 14px;
 }
 
 .botao_e_link {
