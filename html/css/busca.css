@@ -20,6 +20,7 @@ header {
     margin: 0 auto;
     background-color: black;
     position: fixed;
+    z-index: 999;
 }
 
 .menu {
@@ -35,6 +36,47 @@ header {
 
 .menu:active {
     transform: scale(0.98);
+}
+
+#ativar_menu {
+    display: none;
+}
+
+#ativar_menu:checked + label .menu{
+    stroke: #7a63d6;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    top: 40px;
+    transform: translateX(-100%);
+    padding-right: 10px;
+    position: fixed;
+    width: 45px;
+    height: 100%;
+    background-color: black;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    gap: 15px;
+}
+
+#ativar_menu:checked ~ aside {
+    transform: translateX(0);
+}
+
+aside a svg {
+    width: 130%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+aside a svg:hover {
+    transform: scale(1.04);
+}
+
+aside a svg:active {
+    transform: scale(1.04);
 }
 
 main {
