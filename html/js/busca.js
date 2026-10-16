@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const campoPesquisa = document.querySelector(".pesquisa input");
     const resultado = document.querySelector(".resultado");
 
-    // Banco de dados dos mangás
-    // O arquivo que contém o array mangas deve ser carregado antes deste arquivo.
 
     function exibirResultados(lista) {
         resultado.innerHTML = "";

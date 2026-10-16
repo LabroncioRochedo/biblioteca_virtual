@@ -125,3 +125,81 @@ li h6 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.carrossel {
+    position: relative;
+}
+
+.lista-manga {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.lista-manga .manga-card img {
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.carrossel .seta {
+    position: absolute;
+    top: 0;
+    bottom: 15px;
+    z-index: 10;
+
+    width: 45px;
+    margin: auto 0;
+    height: 60px;
+
+    border: none;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+
+    opacity: 0;
+    transition: opacity 0.25s, background 0.25s;
+}
+
+.carrossel:hover .seta {
+    opacity: 1;
+}
+
+.carrossel .seta:hover {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.carrossel .seta-esquerda {
+    left: 0;
+}
+
+.carrossel .seta-direita {
+    right: 0;
+}
+
+.carrossel .seta-desativada {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@media (hover: none) {
+    .carrossel .seta {
+        opacity: 0.8;
+        width: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .secao-manga {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .lista-manga {
+        gap: 12px;
+    }
+}

@@ -1,6 +1,6 @@
 import mangas from "./mangas.js";
 
-// Mangás que aparecerão na seção Populares, nesta ordem.
+
 const populares = [
   "One Piece",
   "Bleach",
@@ -16,7 +16,6 @@ const populares = [
   "Jujutsu Kaisen"
 ];
 
-// Evita que caracteres especiais dos dados sejam interpretados como HTML.
 function escaparHTML(valor = "") {
   return String(valor).replace(/[&<>"']/g, caractere => ({
     "&": "&amp;",
@@ -27,43 +26,92 @@ function escaparHTML(valor = "") {
   })[caractere]);
 }
 
-// Cria o card de cada mangá.
 function criarCard(manga) {
   return `
     <li class="manga-card">
-        <img
-          src="${escaparHTML(manga.imagem)}"
-          alt="Capa de ${escaparHTML(manga.nome)}"
-          loading="lazy"
-        >
-        <h6>${escaparHTML(manga.nome)}</h3>
+      <img
+        src="${escaparHTML(manga.imagem)}"
+        alt="Capa de ${escaparHTML(manga.nome)}"
+        loading="lazy"
+      >
+      <h6>${escaparHTML(manga.nome)}</h6>
     </li>
   `;
 }
 
-// Cria uma seção com título e lista de mangás.
 function criarSecao(titulo, lista, classe = "") {
   if (lista.length === 0) return "";
 
   return `
-    <section class="manga-section ${classe}">
+    <section class="secao-manga ${classe}">
       <h2>${escaparHTML(titulo)}</h2>
 
-      <ul class="manga-list">
-        ${lista.map(criarCard).join("")}
-      </ul>
+      <div class="carrossel">
+        <button
+          class="seta seta-esquerda"
+          type="button"
+          aria-label="Ver ${escaparHTML(titulo)} anteriores"
+        >&#10094;</button>
+
+        <ul class="lista-manga">
+          ${lista.map(criarCard).join("")}
+        </ul>
+
+        <button
+          class="seta seta-direita"
+          type="button"
+          aria-label="Ver próximos ${escaparHTML(titulo)}"
+        >&#10095;</button>
+      </div>
     </section>
   `;
 }
 
-// Gera o conteúdo da página inicial.
+function configurarCarrosseis(elemento) {
+  const carrosseis = elemento.querySelectorAll(".carrossel");
+
+  carrosseis.forEach(carrossel => {
+    const lista = carrossel.querySelector(".lista-manga");
+    const esquerda = carrossel.querySelector(".seta-esquerda");
+    const direita = carrossel.querySelector(".seta-direita");
+
+    esquerda.addEventListener("click", () => {
+      lista.scrollBy({
+        left: -lista.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+    });
+
+    direita.addEventListener("click", () => {
+      lista.scrollBy({
+        left: lista.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+    });
+
+    function atualizarSetas() {
+      const maximo = lista.scrollWidth - lista.clientWidth;
+
+      esquerda.disabled = lista.scrollLeft <= 1;
+      direita.disabled = lista.scrollLeft >= maximo - 1;
+
+      esquerda.classList.toggle("seta-desativada", esquerda.disabled);
+      direita.classList.toggle("seta-desativada", direita.disabled);
+    }
+
+    lista.addEventListener("scroll", atualizarSetas, { passive: true });
+    window.addEventListener("resize", atualizarSetas);
+
+    atualizarSetas();
+  });
+}
+
 export function renderizarHome(elemento = document.querySelector("main")) {
   if (!elemento) {
     console.error("Não foi encontrado um elemento <main> na página.");
     return;
   }
 
-  // Busca os mangás populares no arquivo mangas.js.
   const listaPopulares = populares
     .map(nome =>
       mangas.find(manga =>
@@ -72,14 +120,12 @@ export function renderizarHome(elemento = document.querySelector("main")) {
     )
     .filter(Boolean);
 
-  // Identifica todas as categorias cadastradas.
   const categorias = [
     ...new Set(
       mangas.flatMap(manga => manga.categorias || [])
     )
   ].sort((a, b) => a.localeCompare(b, "pt-BR"));
 
-  // Cria automaticamente uma seção para cada categoria.
   const secoesCategorias = categorias
     .map(categoria => {
       const lista = mangas.filter(manga =>
@@ -94,13 +140,13 @@ export function renderizarHome(elemento = document.querySelector("main")) {
     })
     .join("");
 
-  // Insere todas as seções no <main>.
   elemento.innerHTML =
     criarSecao("Populares", listaPopulares, "populares-section") +
     secoesCategorias;
+
+  configurarCarrosseis(elemento);
 }
 
-// Executa quando o HTML estiver pronto.
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     renderizarHome();
