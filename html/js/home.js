@@ -29,11 +29,13 @@ function escaparHTML(valor = "") {
 function criarCard(manga) {
   return `
     <li class="manga-card">
+      <a href="manga.html?nome=${encodeURIComponent(manga.nome)}">
       <img
         src="${escaparHTML(manga.imagem)}"
         alt="Capa de ${escaparHTML(manga.nome)}"
         loading="lazy"
       >
+      </a>
       <h6>${escaparHTML(manga.nome)}</h6>
     </li>
   `;

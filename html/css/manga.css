@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #95a8b9, #765477, #412141);
+    background-attachment: fixed;
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    background-color: black;
+    position: fixed;
+    z-index: 9999;
+    
+}
+
+.menu {
+    stroke: #ffffff;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu:hover {
+    transform: scale(1.02);
+}
+
+.menu:active {
+    transform: scale(0.98);
+}
+
+#ativar_menu {
+    display: none;
+}
+
+#ativar_menu:checked + label .menu{
+    stroke: #7a63d6;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    top: 40px;
+    transform: translateX(-100%);
+    padding-right: 10px;
+    position: fixed;
+    width: 45px;
+    height: 100%;
+    background-color: black;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    gap: 15px;
+}
+
+#ativar_menu:checked ~ aside {
+    transform: translateX(0);
+}
+
+aside a svg {
+    width: 130%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+aside a svg:hover {
+    transform: scale(1.04);
+}
+
+aside a svg:active {
+    transform: scale(1.04);
+}
+
+main {
+    width: 100%;
+    padding: 20px 30px 40px;
+}
+
+.detalhes {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.capa {
+    width: 42%;
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.capa img {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 110px);
+    min-height: 500px;
+    object-fit: contain;
+    object-position: left top;
+    border-radius: 12px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.35));
+}
+
+.informacoes {
+    flex: 1;
+    max-width: 750px;
+    padding: 10px 0;
+}
+
+.informacoes h1 {
+    font-size: 38px;
+    color: #f0e5ff;
+    margin: 0 0 20px;
+}
+
+.linha {
+    width: 80px;
+    height: 4px;
+    background-color: #c9b7ff;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.informacoes h2 {
+    font-size: 20px;
+    color: #e2caff;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.informacoes p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #f4edf7;
+    margin: 0;
+}
+
+.descricao {
+    text-align: left;
+}
+
+.capitulos {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.capitulo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #e4d8f5;
+    font-size: 14px;
+}
+
+.numero {
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+}
+
+.botao-ler {
+    margin-top: 30px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #7959c7;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-ler:hover {
+    background-color: #6345ad;
+    transform: translateY(-3px);
+}
+
+.botao-ler:active {
+    transform: scale(0.97);
+}
+
+.erro {
+    text-align: left;
+    padding: 30px;
+}
+
+.erro a {
+    color: #e2caff;
+}
+
+@media (max-width: 750px) {
+    header {
+        padding: 20px;
+    }
+
+    main {
+        padding: 15px 20px 35px;
+    }
+
+    .detalhes {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .capa {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .capa img {
+        width: 100%;
+        height: 450px;
+        min-height: 0;
+        object-fit: contain;
+        object-position: left center;
+    }
+
+    .informacoes {
+        width: 100%;
+        padding: 0;
+    }
+
+    .informacoes h1 {
+        font-size: 29px;
+    }
+
+    .informacoes h2 {
+        font-size: 18px;
+    }
+
+    .informacoes p {
+        font-size: 14px;
+    }
+
+    .capitulos {
+        gap: 35px;
+    }
+}
