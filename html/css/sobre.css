@@ -1,0 +1,152 @@
+css
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #95a8b9, #765477, #412141);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 65px 20px 40px;
+}
+
+.sobre {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    color: white;
+    text-align: center;
+}
+
+.sobre h1 {
+    font-size: 36px;
+    color: #f0e5ff;
+    margin-bottom: 30px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sobre h2 {
+    font-size: 25px;
+    color: #eadbff;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.sobre p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 18px auto;
+    color: #f4edf7;
+}
+
+.informacoes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.item {
+    background: rgba(35, 20, 45, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px 20px;
+    flex: 1;
+    max-width: 280px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.item:hover {
+    transform: translateY(-7px);
+    background: rgba(35, 20, 45, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item h3 {
+    color: #e2caff;
+    font-size: 19px;
+}
+
+.item p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 28px;
+    background-color: #7959c7;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #6345ad;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.botao:active {
+    transform: scale(0.97);
+}
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    font-size: 13px;
+    background: rgba(25, 15, 30, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 40px 15px 30px;
+    }
+
+    .sobre h1 {
+        font-size: 27px;
+    }
+
+    .sobre h2 {
+        font-size: 21px;
+        margin-top: 35px;
+    }
+
+    .sobre p {
+        font-size: 14px;
+    }
+
+    .informacoes {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .item {
+        width: 100%;
+        max-width: 350px;
+    }
+}
