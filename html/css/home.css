@@ -180,8 +180,8 @@ li h6 {
 
     border: none;
     border-radius: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: black;
+    background: rgba(0, 0, 0, 0.5);
+    color: rgb(89, 11, 149);
     font-size: 28px;
     cursor: pointer;
 
@@ -194,7 +194,7 @@ li h6 {
 }
 
 .carrossel .seta:hover {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .carrossel .seta-esquerda {
